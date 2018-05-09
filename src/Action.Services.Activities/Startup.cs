@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Action.Common.Commands;
+using Action.Common.Mongo;
 using Action.Common.RabbitMq;
+using Action.Services.Activities.Domain.Repositories;
 using Action.Services.Activities.Handlers;
+using Action.Services.Activities.Repositories;
+using Action.Services.Activities.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -27,8 +31,12 @@ namespace Action.Services.Activities
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddMongoDb(Configuration);
             services.AddRabbitMq(Configuration);
+            services.AddSingleton<IActivityRepository, ActivityRepository>();
+            services.AddSingleton<ICategoryRepository, CategoryRepository>();
             services.AddSingleton<ICommandHandler<CreateActivity>, CreateActivityHandler>();
+            services.AddSingleton<IDatabaseSeeder, CustomMongoSeeder>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,6 +46,8 @@ namespace Action.Services.Activities
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.ApplicationServices.GetService<IDatabaseInitializer>().InitializeAsync();
 
             app.UseMvc();
         }
