@@ -37,6 +37,7 @@ namespace Action.Services.Activities
             services.AddSingleton<ICategoryRepository, CategoryRepository>();
             services.AddSingleton<ICommandHandler<CreateActivity>, CreateActivityHandler>();
             services.AddSingleton<IDatabaseSeeder, CustomMongoSeeder>();
+            services.AddSingleton<IActivityService, ActivityService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
