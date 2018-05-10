@@ -15,7 +15,7 @@ namespace Action.Api.Controllers
     public class ActivitiesController : Controller
     {
         private readonly IBusClient _busClient;
-        private IActivityRepository _activityRepository;
+        private readonly IActivityRepository _activityRepository;
 
         public ActivitiesController(IBusClient busClient, IActivityRepository activityRepository)
         {
@@ -39,18 +39,18 @@ namespace Action.Api.Controllers
             return Json(activities.Select(x => new { x.Id, x.Name, x.Category }));
         }
 
-        [HttpGet("")]
-        public async Task<IActionResult> Get(Guid id)
-        {
-            var activity = await _activityRepository.GetAsync(id);
+        //[HttpGet("")]
+        //public async Task<IActionResult> Get(Guid id)
+        //{
+        //    var activity = await _activityRepository.GetAsync(id);
 
-            if (activity == null)
-                return NotFound();
+        //    if (activity == null)
+        //        return NotFound();
 
-            if (activity.UserId != Guid.Parse(User.Identity.Name))
-                return Unauthorized();
+        //    if (activity.UserId != Guid.Parse(User.Identity.Name))
+        //        return Unauthorized();
 
-            return Json(activity);
-        }
+        //    return Json(activity);
+        //}
     }
 }
