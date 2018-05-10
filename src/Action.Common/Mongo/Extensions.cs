@@ -2,18 +2,13 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Action.Common.Mongo
 {
     public static class Extensions
     {
-
         public static void AddMongoDb(this IServiceCollection services, IConfiguration configuration)
         {
-
             services.Configure<MongoOptions>(configuration.GetSection("mongo"));
             services.AddSingleton<MongoClient>(c =>
             {

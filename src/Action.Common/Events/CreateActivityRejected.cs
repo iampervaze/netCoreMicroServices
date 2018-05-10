@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Action.Common.Events
 {
@@ -13,7 +11,6 @@ namespace Action.Common.Events
 
         protected CreateActivityRejected()
         {
-
         }
 
         public CreateActivityRejected(Guid id, string code, string reason)

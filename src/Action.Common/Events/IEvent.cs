@@ -1,6 +1,6 @@
-namespace Action.Common.Events {
+namespace Action.Common.Events
+{
     public interface IEvent
     {
-        
     }
 }

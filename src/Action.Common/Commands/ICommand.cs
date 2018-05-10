@@ -1,6 +1,6 @@
-namespace Action.Common.Commands {
+namespace Action.Common.Commands
+{
     public interface ICommand
     {
-        
     }
 }

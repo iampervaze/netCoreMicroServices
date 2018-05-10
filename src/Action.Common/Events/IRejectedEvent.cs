@@ -1,10 +1,8 @@
-using System;
-
-namespace Action.Common.Events { 
-
+namespace Action.Common.Events
+{
     public interface IRejectedEvent : IEvent
-     {
-         string Reason {get;}
-         string Code {get;}
+    {
+        string Reason { get; }
+        string Code { get; }
     }
 }

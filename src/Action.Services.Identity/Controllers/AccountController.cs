@@ -1,15 +1,15 @@
-﻿using System.Threading.Tasks;
-using Action.Common.Commands;
+﻿using Action.Common.Commands;
 using Action.Services.Identity.Services;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace Action.Services.Identity.Controllers
 {
     [Route("")]
     public class AccountController : Controller
     {
-
         private readonly IUserService _userService;
+
         public AccountController(IUserService userService)
         {
             _userService = userService;
@@ -21,5 +21,4 @@ namespace Action.Services.Identity.Controllers
             return Json(await _userService.LoginAsync(command.Email, command.Password));
         }
     }
-
 }

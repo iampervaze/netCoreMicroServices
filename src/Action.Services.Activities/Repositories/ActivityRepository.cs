@@ -12,10 +12,12 @@ namespace Action.Services.Activities.Repositories
     public class ActivityRepository : IActivityRepository
     {
         private readonly IMongoDatabase _database;
+
         public ActivityRepository(IMongoDatabase database)
         {
             _database = database;
         }
+
         public async Task AddAsync(Activity category) => await Collection.InsertOneAsync(category);
 
         public async Task<IEnumerable<Activity>> BrowseAsync() =>

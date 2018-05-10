@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
-using System.Threading.Tasks;
 
 namespace Action.Services.Identity.Domain.Services
 {
@@ -10,6 +7,7 @@ namespace Action.Services.Identity.Domain.Services
     {
         private static int SaltSize = 40;
         private static readonly int DeriveBytesInterationsCount = 10000;
+
         public string GetHash(string value, string salt)
         {
             var pbkdf2 = new Rfc2898DeriveBytes(value, GetBytes(salt), DeriveBytesInterationsCount);

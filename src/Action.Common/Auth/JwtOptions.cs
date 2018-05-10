@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Action.Common.Auth
+﻿namespace Action.Common.Auth
 {
     public class JwtOptions
     {

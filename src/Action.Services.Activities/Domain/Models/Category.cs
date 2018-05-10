@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Action.Services.Activities.Domain.Models
 {
@@ -9,7 +6,10 @@ namespace Action.Services.Activities.Domain.Models
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        protected Category() { }
+
+        protected Category()
+        {
+        }
 
         public Category(string name)
         {

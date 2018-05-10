@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Action.Common.Mongo
+﻿namespace Action.Common.Mongo
 {
     public class MongoOptions
     {

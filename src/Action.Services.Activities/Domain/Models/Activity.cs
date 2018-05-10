@@ -1,8 +1,5 @@
 ﻿using Action.Common.Exceptions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Action.Services.Activities.Domain.Models
 {
@@ -17,12 +14,10 @@ namespace Action.Services.Activities.Domain.Models
 
         protected Activity()
         {
-
         }
 
         public Activity(Guid id, Category category, Guid userId, string name, string description, DateTime createdAt)
         {
-
             if (string.IsNullOrWhiteSpace(name))
                 throw new ActionException("empty_activity_name", "Activity name cannot be empty");
 
@@ -33,6 +28,5 @@ namespace Action.Services.Activities.Domain.Models
             Description = description;
             CreatedAt = createdAt;
         }
-
     }
 }

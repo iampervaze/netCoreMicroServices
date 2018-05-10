@@ -1,10 +1,10 @@
-﻿using System;
-using System.Threading.Tasks;
-using Action.Common.Commands;
+﻿using Action.Common.Commands;
 using Action.Common.Events;
 using Action.Common.Exceptions;
 using Action.Services.Identity.Services;
 using RawRabbit;
+using System;
+using System.Threading.Tasks;
 
 namespace Action.Services.Identity
 {
@@ -12,11 +12,13 @@ namespace Action.Services.Identity
     {
         private readonly IBusClient _bus;
         private readonly IUserService _userService;
+
         public CreateUserHandler(IBusClient bus, IUserService userService)
         {
             _bus = bus;
             _userService = userService;
         }
+
         public async Task HandleAsync(CreateUser command)
         {
             try
@@ -29,7 +31,6 @@ namespace Action.Services.Identity
             {
                 await _bus.PublishAsync(new CreateUserRejected(command.Email, ex.Code, ex.Message));
             }
-
             catch (Exception ex)
             {
                 await _bus.PublishAsync(new CreateUserRejected(command.Email, "error", ex.Message));

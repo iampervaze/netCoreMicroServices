@@ -1,16 +1,17 @@
-﻿using System;
+﻿using Action.Api.Models;
+using MongoDB.Driver;
+using MongoDB.Driver.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Action.Api.Models;
-using MongoDB.Driver;
-using MongoDB.Driver.Linq; 
 
 namespace Action.Api.Repositories
 {
     public class ActivityRepository : IActivityRepository
     {
         private readonly IMongoDatabase _database;
+
         public ActivityRepository(IMongoDatabase database)
         {
             _database = database;

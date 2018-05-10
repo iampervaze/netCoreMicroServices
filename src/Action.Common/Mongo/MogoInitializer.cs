@@ -1,9 +1,7 @@
 ﻿using Microsoft.Extensions.Options;
 using MongoDB.Bson.Serialization.Conventions;
 using MongoDB.Driver;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Action.Common.Mongo
@@ -21,9 +19,10 @@ namespace Action.Common.Mongo
             _seeder = seeder;
             _seed = options.Value.Seed;
         }
+
         public async Task InitializeAsync()
         {
-            if(_initialized)
+            if (_initialized)
             {
                 return;
             }
@@ -31,7 +30,7 @@ namespace Action.Common.Mongo
             RegisterConventions();
 
             _initialized = true;
-            if(!_seed)
+            if (!_seed)
             {
                 return;
             }

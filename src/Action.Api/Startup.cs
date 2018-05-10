@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Action.Api.Handlers;
+using Action.Api.Repositories;
+using Action.Common.Auth;
+using Action.Common.Events;
+using Action.Common.Mongo;
+using Action.Common.RabbitMq;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Action.Common.RabbitMq;
-using Action.Common.Events;
-using Action.Common.Mongo;
-using Action.Api.Handlers;
-using Action.Common.Auth;
-using Action.Api.Repositories;
 
 namespace Action.Api
 {

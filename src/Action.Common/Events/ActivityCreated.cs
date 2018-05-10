@@ -10,9 +10,9 @@ namespace Action.Common.Events
         public string Category { get; }
         public string Description { get; }
         public DateTime CreatedAt { get; }
+
         protected ActivityCreated()
         {
-
         }
 
         public ActivityCreated(Guid id, Guid userId, string name, string category, string description, DateTime createdAt)
@@ -25,5 +25,4 @@ namespace Action.Common.Events
             CreatedAt = createdAt;
         }
     }
-
 }

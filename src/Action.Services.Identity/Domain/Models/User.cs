@@ -1,9 +1,6 @@
 ﻿using Action.Common.Exceptions;
 using Action.Services.Identity.Domain.Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Action.Services.Identity.Domain.Models
 {
@@ -18,7 +15,6 @@ namespace Action.Services.Identity.Domain.Models
 
         protected User()
         {
-
         }
 
         public User(string email, string name)
@@ -42,7 +38,7 @@ namespace Action.Services.Identity.Domain.Models
 
             Salt = encrypter.GetSalt(password);
             Password = encrypter.GetHash(password, Salt);
-        } 
+        }
 
         public bool ValidatePassword(string password, IEncrypter encrypter)
         {
