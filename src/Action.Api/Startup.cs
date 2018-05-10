@@ -10,8 +10,10 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Action.Common.RabbitMq;
 using Action.Common.Events;
+using Action.Common.Mongo;
 using Action.Api.Handlers;
 using Action.Common.Auth;
+using Action.Api.Repositories;
 
 namespace Action.Api
 {
@@ -28,10 +30,12 @@ namespace Action.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddMongoDb(Configuration);
             services.AddJwt(Configuration);
             services.AddRabbitMq(Configuration);
             services.AddSingleton<IEventHandler<ActivityCreated>, ActivityCreatedHandler>();
             services.AddSingleton<IEventHandler<UserCreated>, UserCreatedHandler>();
+            services.AddSingleton<IActivityRepository, ActivityRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
