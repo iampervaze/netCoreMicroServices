@@ -1,8 +1,8 @@
+using System;
+using System.Threading.Tasks;
 using Action.Api.Models;
 using Action.Api.Repositories;
 using Action.Common.Events;
-using System;
-using System.Threading.Tasks;
 
 namespace Action.Api.Handlers
 {

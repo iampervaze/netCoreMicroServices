@@ -1,6 +1,6 @@
-﻿using Action.Common.Events;
-using System;
+﻿using System;
 using System.Threading.Tasks;
+using Action.Common.Events;
 
 namespace Action.Api.Handlers
 {

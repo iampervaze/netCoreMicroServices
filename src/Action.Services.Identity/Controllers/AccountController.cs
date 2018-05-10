@@ -1,7 +1,7 @@
-﻿using Action.Common.Commands;
+﻿using System.Threading.Tasks;
+using Action.Common.Commands;
 using Action.Services.Identity.Services;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
 namespace Action.Services.Identity.Controllers
 {

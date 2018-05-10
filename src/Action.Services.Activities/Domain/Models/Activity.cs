@@ -1,5 +1,5 @@
-﻿using Action.Common.Exceptions;
-using System;
+﻿using System;
+using Action.Common.Exceptions;
 
 namespace Action.Services.Activities.Domain.Models
 {

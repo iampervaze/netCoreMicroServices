@@ -1,3 +1,4 @@
+using System;
 using Action.Common.Commands;
 using Action.Common.Events;
 using Action.Common.RabbitMq;
@@ -5,7 +6,6 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using RawRabbit;
-using System;
 
 namespace Action.Common.Services
 {

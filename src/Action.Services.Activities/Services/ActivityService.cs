@@ -1,8 +1,8 @@
-﻿using Action.Common.Exceptions;
+﻿using System;
+using System.Threading.Tasks;
+using Action.Common.Exceptions;
 using Action.Services.Activities.Domain.Models;
 using Action.Services.Activities.Domain.Repositories;
-using System;
-using System.Threading.Tasks;
 
 namespace Action.Services.Activities.Services
 {

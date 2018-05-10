@@ -1,3 +1,5 @@
+using System.Reflection;
+using System.Threading.Tasks;
 using Action.Common.Commands;
 using Action.Common.Events;
 using Microsoft.Extensions.Configuration;
@@ -5,8 +7,6 @@ using Microsoft.Extensions.DependencyInjection;
 using RawRabbit;
 using RawRabbit.Instantiation;
 using RawRabbit.Pipe;
-using System.Reflection;
-using System.Threading.Tasks;
 
 namespace Action.Common.RabbitMq
 {

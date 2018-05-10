@@ -1,5 +1,5 @@
-﻿using Action.Common.Auth;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Action.Common.Auth;
 
 namespace Action.Services.Identity.Services
 {

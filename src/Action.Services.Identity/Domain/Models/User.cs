@@ -1,6 +1,6 @@
-﻿using Action.Common.Exceptions;
+﻿using System;
+using Action.Common.Exceptions;
 using Action.Services.Identity.Domain.Services;
-using System;
 
 namespace Action.Services.Identity.Domain.Models
 {

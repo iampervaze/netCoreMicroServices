@@ -1,8 +1,8 @@
-﻿using Microsoft.Extensions.Options;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Options;
 using MongoDB.Bson.Serialization.Conventions;
 using MongoDB.Driver;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace Action.Common.Mongo
 {

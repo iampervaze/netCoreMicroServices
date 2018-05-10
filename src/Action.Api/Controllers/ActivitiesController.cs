@@ -1,12 +1,12 @@
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 using Action.Api.Repositories;
 using Action.Common.Commands;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RawRabbit;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Action.Api.Controllers
 {

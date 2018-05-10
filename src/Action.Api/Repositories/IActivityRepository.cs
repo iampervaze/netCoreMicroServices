@@ -1,7 +1,7 @@
-﻿using Action.Api.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Action.Api.Models;
 
 namespace Action.Api.Repositories
 {

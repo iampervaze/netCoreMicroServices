@@ -1,7 +1,7 @@
-﻿using Action.Services.Activities.Domain.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Action.Services.Activities.Domain.Models;
 
 namespace Action.Services.Activities.Domain.Repositories
 {

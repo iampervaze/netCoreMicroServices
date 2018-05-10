@@ -1,9 +1,9 @@
-﻿using Action.Common.Auth;
+﻿using System.Threading.Tasks;
+using Action.Common.Auth;
 using Action.Common.Exceptions;
 using Action.Services.Identity.Domain.Models;
 using Action.Services.Identity.Domain.Repositories;
 using Action.Services.Identity.Domain.Services;
-using System.Threading.Tasks;
 
 namespace Action.Services.Identity.Services
 {

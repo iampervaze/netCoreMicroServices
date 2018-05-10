@@ -1,10 +1,10 @@
-﻿using Action.Services.Identity.Domain.Models;
+﻿using System;
+using System.Linq;
+using System.Threading.Tasks;
+using Action.Services.Identity.Domain.Models;
 using Action.Services.Identity.Domain.Repositories;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Action.Services.Identity.Repositories
 {

@@ -1,10 +1,10 @@
-﻿using Action.Common.Commands;
+﻿using System;
+using System.Threading.Tasks;
+using Action.Common.Commands;
 using Action.Common.Events;
 using Action.Common.Exceptions;
 using Action.Services.Identity.Services;
 using RawRabbit;
-using System;
-using System.Threading.Tasks;
 
 namespace Action.Services.Identity
 {
