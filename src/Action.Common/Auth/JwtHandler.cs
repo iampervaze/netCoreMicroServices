@@ -32,7 +32,7 @@ namespace Action.Common.Auth
         public JsonWebToken Create(Guid userId)
         {
             var utcNow = DateTime.UtcNow;
-            var expires = utcNow.AddMilliseconds(_jwtOptions.ExpiryMinutes);
+            var expires = utcNow.AddMinutes(_jwtOptions.ExpiryMinutes);
             var centuryBegin = new DateTime(1970, 1, 1).ToUniversalTime();
             var exp = (long)(new TimeSpan(expires.Ticks - centuryBegin.Ticks).TotalSeconds);
             var now = (long)(new TimeSpan(utcNow.Ticks - centuryBegin.Ticks).TotalSeconds);
