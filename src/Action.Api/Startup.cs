@@ -11,6 +11,7 @@ using Microsoft.Extensions.Options;
 using Action.Common.RabbitMq;
 using Action.Common.Events;
 using Action.Api.Handlers;
+using Action.Common.Auth;
 
 namespace Action.Api
 {
@@ -27,6 +28,7 @@ namespace Action.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddJwt(Configuration);
             services.AddRabbitMq(Configuration);
             services.AddSingleton<IEventHandler<ActivityCreated>, ActivityCreatedHandler>();
             services.AddSingleton<IEventHandler<UserCreated>, UserCreatedHandler>();

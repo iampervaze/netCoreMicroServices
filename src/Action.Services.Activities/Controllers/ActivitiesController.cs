@@ -3,6 +3,7 @@ using RawRabbit;
 using System;
 using Action.Common.Commands;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Action.Services.Activities.Controllers
 {

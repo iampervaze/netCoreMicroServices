@@ -3,6 +3,8 @@ using RawRabbit;
 using System;
 using Action.Common.Commands;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace Action.Api.Controllers
 {
@@ -21,10 +23,9 @@ namespace Action.Api.Controllers
             return Accepted($"activities/{command.Id}");
         }
 
+
         [HttpGet("")]
-        public IActionResult Get()
-        {
-            return Ok("You got the activities");
-        }
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public IActionResult Get() => Content("secured");
     }
 }

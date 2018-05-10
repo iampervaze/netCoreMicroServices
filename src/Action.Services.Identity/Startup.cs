@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Action.Common.Auth;
 using Action.Common.Commands;
 using Action.Common.Mongo;
 using Action.Common.RabbitMq;
@@ -33,6 +34,7 @@ namespace Action.Services.Identity
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddJwt(Configuration);
             services.AddMongoDb(Configuration);
             services.AddRabbitMq(Configuration);
             services.AddSingleton<ICommandHandler<CreateUser>, CreateUserHandler>();
