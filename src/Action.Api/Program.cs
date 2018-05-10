@@ -19,6 +19,7 @@ namespace Action.Api
             ServiceHost.Create<Startup>(args)
                 .UseRabbitMq()
                 .SubscribeToEvent<ActivityCreated>()
+                .SubscribeToEvent<UserCreated>()
                 .Build()
                 .Run();
         }
