@@ -13,7 +13,6 @@ namespace Action.Common.Auth
         private readonly SecurityKey _issuerSigninKey;
         private readonly SigningCredentials _signingCredentials;
         private readonly JwtHeader _jwtHeader;
-        private readonly TokenValidationParameters _tokenValidationParameters;
 
         public JwtHandler(IOptions<JwtOptions> options)
         {
@@ -21,26 +20,17 @@ namespace Action.Common.Auth
             _issuerSigninKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtOptions.SecretKey));
             _signingCredentials = new SigningCredentials(_issuerSigninKey, SecurityAlgorithms.HmacSha256);
             _jwtHeader = new JwtHeader(_signingCredentials);
-            _tokenValidationParameters = new TokenValidationParameters()
-            {
-                ValidateAudience = false,
-                ValidIssuer = _jwtOptions.Issuer,
-                IssuerSigningKey = _issuerSigninKey
-            };
         }
 
         public JsonWebToken Create(Guid userId)
         {
-            var utcNow = DateTime.UtcNow;
-            var expires = utcNow.AddMinutes(_jwtOptions.ExpiryMinutes);
-            var centuryBegin = new DateTime(1970, 1, 1).ToUniversalTime();
-            var exp = (long)(new TimeSpan(expires.Ticks - centuryBegin.Ticks).TotalSeconds);
-            var now = (long)(new TimeSpan(utcNow.Ticks - centuryBegin.Ticks).TotalSeconds);
+            var iat = DateTimeOffset.Now.ToUnixTimeSeconds();
+            var exp = iat + (_jwtOptions.ExpiryMinutes * 60);
             var payload = new JwtPayload()
             {
                 { "sub", userId},
                 { "iss", _jwtOptions.Issuer},
-                { "iat", now },
+                { "iat", iat },
                 { "exp", exp},
                 { "unique_name", userId}
             };

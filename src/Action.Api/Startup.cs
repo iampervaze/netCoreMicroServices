@@ -23,9 +23,10 @@ namespace Action.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
-            services.AddMongoDb(Configuration);
+
             services.AddJwt(Configuration);
+            services.AddMvc();         
+            services.AddMongoDb(Configuration);
             services.AddRabbitMq(Configuration);
             services.AddSingleton<IEventHandler<ActivityCreated>, ActivityCreatedHandler>();
             services.AddSingleton<IEventHandler<UserCreated>, UserCreatedHandler>();
