@@ -36,7 +36,7 @@ namespace Action.Services.Identity.Domain.Models
             if (string.IsNullOrWhiteSpace(password))
                 throw new ActionException("password_empty", "Password cannot be empty");
 
-            Salt = encrypter.GetSalt(password);
+            Salt = encrypter.GetSalt();
             Password = encrypter.GetHash(password, Salt);
         }
 

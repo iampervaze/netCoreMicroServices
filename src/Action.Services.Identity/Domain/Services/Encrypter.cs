@@ -14,7 +14,7 @@ namespace Action.Services.Identity.Domain.Services
             return Convert.ToBase64String(pbkdf2.GetBytes(SaltSize));
         }
 
-        public string GetSalt(string value)
+        public string GetSalt()
         {
             var random = new Random();
             var saltBytes = new byte[SaltSize];

@@ -20,4 +20,8 @@
     <ProjectReference Include="..\src\Action.Services.Identity\Action.Services.Identity.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Integration\" />
+  </ItemGroup>
+
 </Project>
