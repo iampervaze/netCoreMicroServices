@@ -17,7 +17,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\Action.Api\Action.Api.csproj" />
+    <Folder Include="Integration\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Action.Services.Identity\Action.Services.Identity.csproj" />
   </ItemGroup>
 
 </Project>

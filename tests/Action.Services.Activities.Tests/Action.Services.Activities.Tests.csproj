@@ -5,7 +5,9 @@
 
     <IsPackable>false</IsPackable>
   </PropertyGroup>
-
+  <ItemGroup>
+	<Content Include="appsettings.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="4.19.4" />
     <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="2.0.3" />
@@ -15,13 +17,8 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
     <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.1" />
   </ItemGroup>
-
   <ItemGroup>
-    <ProjectReference Include="..\src\Action.Services.Identity\Action.Services.Identity.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Integration\" />
+    <ProjectReference Include="..\..\src\Action.Services.Activities\Action.Services.Activities.csproj" />
   </ItemGroup>
 
 </Project>
