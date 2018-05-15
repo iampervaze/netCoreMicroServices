@@ -1,15 +1,14 @@
-﻿using Action.Api.Handlers;
-using Action.Api.Repositories;
-using Action.Common.Auth;
-using Action.Common.Events;
-using Action.Common.Mongo;
-using Action.Common.RabbitMq;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Action.Api
+namespace Action.Web
 {
     public class Startup
     {
@@ -23,15 +22,7 @@ namespace Action.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-            services.AddJwt(Configuration);
             services.AddMvc();
-            services.AddCors();
-            services.AddMongoDb(Configuration);
-            services.AddRabbitMq(Configuration);
-            services.AddSingleton<IEventHandler<ActivityCreated>, ActivityCreatedHandler>();
-            services.AddSingleton<IEventHandler<UserCreated>, UserCreatedHandler>();
-            services.AddSingleton<IActivityRepository, ActivityRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,10 +31,28 @@ namespace Action.Api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
+                {
+                    HotModuleReplacement = true
+                });
+            }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
             }
 
-            app.UseMvc();
-            app.UseCors(o => o.WithOrigins("*").AllowAnyMethod());
+            app.UseStaticFiles();
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+
+                routes.MapSpaFallbackRoute(
+                    name: "spa-fallback",
+                    defaults: new { controller = "Home", action = "Index" });
+            });
         }
     }
 }
