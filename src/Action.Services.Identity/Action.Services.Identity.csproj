@@ -18,7 +18,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Action.Common\Action.Common.csproj" />
-    <ProjectReference Include="..\Action.Services.Activities\Action.Services.Activities.csproj" />
   </ItemGroup>
 
 </Project>
