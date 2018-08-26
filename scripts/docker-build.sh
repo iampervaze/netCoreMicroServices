@@ -1,4 +1,4 @@
 cd src
-docker build -f ./Actio.Api/Dockerfile -t actio.api ./Actio.Api
-docker build -f ./Actio.Services.Activities/Dockerfile -t actio.services.activities ./Actio.Services.Activities
-docker build -f ./Actio.Services.Identity/Dockerfile -t actio.services.identity ./Actio.Services.Identity
+docker build -f ./Action.Api/Dockerfile -t action.api ./Action.Api
+docker build -f ./Action.Services.Activities/Dockerfile -t action.services.activities ./Action.Services.Activities
+docker build -f ./Action.Services.Identity/Dockerfile -t action.services.identity ./Action.Services.Identity
