@@ -20,5 +20,8 @@ namespace Action.Services.Identity.Controllers
         {
             return Json(await _userService.LoginAsync(command.Email, command.Password));
         }
+
+        [HttpGet("")]
+        public IActionResult Get() => Content("Hello From Identity API");
     }
 }
