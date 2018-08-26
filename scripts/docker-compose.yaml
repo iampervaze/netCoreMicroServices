@@ -1,4 +1,4 @@
-version: "3"
+version: '3'
 
 services:
   start-dependencies:
@@ -9,7 +9,7 @@ services:
     command: rabbitmq:5672
 
   api:
-    build: ../src/Actio.Api
+    build: ../src/Action.Api
     links:
       - rabbitmq
       - mongo
@@ -17,7 +17,7 @@ services:
       - '5000:5000'
 
   activities-service:
-    build: ../src/Actio.Services.Activities
+    build: ../src/Action.Services.Activities
     links:
       - rabbitmq
       - mongo
@@ -25,7 +25,7 @@ services:
       - '5050:5050'
 
   identity-service:
-    build: ../src/Actio.Services.Identity
+    build: ../src/Action.Services.Identity
     links:
       - rabbitmq
       - mongo
